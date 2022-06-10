@@ -1,12 +1,13 @@
-module.exports = {
-    dialect: 'postgres',
-    host: 'localhost',
-    username: 'postgres',
-    password: 'docker',
-    database: 'sistema',
-    define: {
-        timestamps: true,
-        underscored: true,
-        underscoredAll: true,
-    },
-}
+
+module.exports = new Sequelize('hszdyxab', 'hszdyxab', '9LP05iSm_Ub3Pw_mc6XFjJ3YMZ25BcjB', {
+  dialect: 'postgres',
+  host: 'abul.db.elephantsql.com',
+  username: 'hszdyxab',
+  password: '9LP05iSm_Ub3Pw_mc6XFjJ3YMZ25BcjB',
+  database: 'hszdyxab',
+  define: {
+      timestamps: true,
+      underscored: true,
+      underscoredAll: true,
+  },
+});
