@@ -2,7 +2,11 @@ import { Sequelize, Model, DataTypes } from 'sequelize';
 import sequelize from '../../config/config';
 import bcrypt from 'bcryptjs';
 
-class User extends Model {}
+class User extends Model {
+    checkPassword = async(password) => {
+        return bcrypt.compare(password, this.password_hash);
+    }
+}
 
 User.init({
     name: Sequelize.STRING,
