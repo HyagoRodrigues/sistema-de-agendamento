@@ -29,7 +29,7 @@ User.addHook('beforeSave', async(user) => {
 
 (async() => {
     await sequelize.sync();
-
+    
 })();
 
 export default User;
