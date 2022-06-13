@@ -6,6 +6,9 @@ class User extends Model {
     checkPassword = async(password) => {
         return bcrypt.compare(password, this.password_hash);
     }
+    static associate(models) {
+        this.belongsTo(models.File, {foreignKey: 'phodo_id'})
+    }
 }
 
 User.init({
@@ -26,6 +29,7 @@ User.addHook('beforeSave', async(user) => {
 
     return this;
 });
+
 
 (async() => {
     await sequelize.sync();

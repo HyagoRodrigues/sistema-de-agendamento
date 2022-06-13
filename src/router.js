@@ -1,6 +1,7 @@
 import { Router } from "express";
 import multer from 'multer';
 import multerConfig from "./config/multer";
+import FileController from "./app/controllers/FileController";
 import UserControllers from "./app/controllers/UserControllers";
 import SessionController from "./app/controllers/SessionController";
 
@@ -18,10 +19,7 @@ routes.use(authMiddleware)
 routes.put('/users',  UserControllers.update)
 
 // rotas de uploads
-routes.post('/files', uploads.single('file'), (req, res) => {
-    return res.json({ message: "ok" });
-})
-
+routes.post('/files', uploads.single('file'), FileController.store);
 
 
 export default routes;
