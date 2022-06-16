@@ -8,6 +8,8 @@ import CollaboratorController from "./app/controllers/CollaboratorController";
 import AppointmentController from "./app/controllers/AppointmentController";
 
 import authMiddleware from "./app/middlewares/auth";
+import { roundToNearestMinutes } from "date-fns";
+import ScheduleController from "./app/controllers/ScheduleController";
 
 const routes = new Router();
 const uploads = multer(multerConfig);
@@ -28,6 +30,9 @@ routes.get('/appointments', AppointmentController.index);
 
 //Lista de colaboradores
 routes.get('/collaborator', CollaboratorController.index);
+
+//Lista de agendamentoss de um colaborador
+routes.get('/schedule', ScheduleController.index)
 
 // rotas de uploads
 routes.post('/files', uploads.single('file'), FileController.store);
