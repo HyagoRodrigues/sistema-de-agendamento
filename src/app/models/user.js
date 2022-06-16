@@ -1,13 +1,11 @@
 import { Sequelize, Model, DataTypes } from 'sequelize';
+import File from './File';
 import sequelize from '../../config/config';
 import bcrypt from 'bcryptjs';
 
 class User extends Model {
     checkPassword = async(password) => {
         return bcrypt.compare(password, this.password_hash);
-    }
-    static associate(models) {
-        this.belongsTo(models.File, {foreignKey: 'phodo_id'})
     }
 }
 
@@ -35,5 +33,10 @@ User.addHook('beforeSave', async(user) => {
     await sequelize.sync();
     
 })();
+
+User.belongsTo(File, {
+    foreignKey: 'photo_id',
+    as: 'photo',
+});
 
 export default User;
