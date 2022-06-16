@@ -5,7 +5,7 @@ import User from './User';
 class Appointment extends Model {}
 
 Appointment.init({
-    appointmentDate: {
+    date: {
         type : DataTypes.DATE,
         field: 'date',
     },
